@@ -24,3 +24,21 @@ export async function readLinesIntoNumberArray(input: string): Promise<number[]>
   f.close();
   return array;
 }
+
+export async function readLinesIntoGroupedNumberArray(input: string): Promise<number[]> {
+  const array = [];
+  const f = await Deno.open(input);
+  let current = 0;
+  for await (const line of readline(f)) {
+    const l = new TextDecoder().decode(line);
+    if (l == "") {
+      current += 1;
+    } else if (array[current]) {
+      array[current] += parseInt(l, 10);
+    } else {
+      array.push(parseInt(l, 10));
+    }
+  }
+  f.close();
+  return array;
+}
