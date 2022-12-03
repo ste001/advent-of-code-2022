@@ -4,11 +4,11 @@ type Table<T> = {
   [key: string]: T
 }
 
-let priorityTable = createPriorityTable();
+const priorityTable = createPriorityTable();
 
 export function createPriorityTable() : Table<number> {
-  let characters = "abcdefghijklmnopqrstuvwxyz" + "abcdefghijklmnopqrstuvwxyz".toUpperCase();
-  let table : Table<number> = {};
+  const characters = "abcdefghijklmnopqrstuvwxyz" + "abcdefghijklmnopqrstuvwxyz".toUpperCase();
+  const table : Table<number> = {};
   for (let i = 0; i < characters.length; i++) {
     const character = characters[i];
     table[character as keyof typeof table] = i + 1;
@@ -57,11 +57,11 @@ export function sumOfPriorities(input: string[]): number {
 
 export function sumOfGroupedPriorities(input: string[]): number {
   let prioritySum = 0;
-  let groupedInput = [];
+  const groupedInput = [];
   let startGroup = 0;
   for (let i = 0; i < input.length; i++) {
     if ((i + 1) % 3 == 0) {
-      let groupOfThree = input.slice(startGroup, i + 1);
+      const groupOfThree = input.slice(startGroup, i + 1);
       groupedInput.push(groupOfThree);
       startGroup = i + 1;
     }
