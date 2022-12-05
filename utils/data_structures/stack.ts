@@ -2,8 +2,6 @@ export class Stack<T> {
   private array: T[] = [];
 
   pop(): T | undefined {
-    if (this.isEmpty()) throw new Error("The stack is empty!");
-
     return this.array.pop();
   }
 
