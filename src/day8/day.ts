@@ -75,43 +75,39 @@ export function findDirectionScenicScore(x: number, y: number, grid: number[][],
       if (grid[i][y] < treeHeight) {
         score += 1;
       } else {
-        score += 1;
-        return score === 0 ? 1 : score;
+        return score += 1;
       }
     }
-    return score === 0 ? 1 : score;
+    return score;
   } else if (direction === 1) {
     for (let i = y + 1; i < grid.length; i++) {
       if (grid[x][i] < treeHeight) {
         score += 1;
       } else {
-        score += 1;
-        return score === 0 ? 1 : score;
+        return score += 1;
       }
     }
-    return score === 0 ? 1 : score;
+    return score;
   } else if (direction === 2) {
     for (let i = x + 1; i < grid.length; i++) {
       if (grid[i][y] < treeHeight) {
         score += 1;
       } else {
-        score += 1;
-        return score === 0 ? 1 : score;
+        return score += 1;
       }
     }
-    return score === 0 ? 1 : score;
+    return score;
   } else if (direction === 3) {
     for (let i = y - 1; i >= 0; i--) {
       if (grid[x][i] < treeHeight) {
         score += 1;
       } else {
-        score += 1;
-        return score === 0 ? 1 : score;
+        return score += 1;
       }
     }
-    return score === 0 ? 1 : score;
+    return score;
   }
-  return score === 0 ? 1 : score;
+  return score;
 }
 
 export function findScenicScore(x: number, y: number, grid: number[][]) : number {
