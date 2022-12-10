@@ -35,13 +35,13 @@ export function getCrt(input: string[]) : string[][] {
   let pixelsVisible = [0,1,2];
   let line = 0;
 
-  const crt = new Array(6).fill(".").map(() => new Array(40).fill("."));
+  const crt = new Array(6).fill("░").map(() => new Array(40).fill("░"));
 
   input.forEach(instruction => {
     const instructionArray = instruction.split(" ");
     if (instructionArray[0] === "noop") {
       if (pixelsVisible.includes(cycle)) {
-        crt[line][cycle] = "#";
+        crt[line][cycle] = "▓";
       }
       cycle += 1;
       if (cycle % 40 === 0) {
@@ -51,7 +51,7 @@ export function getCrt(input: string[]) : string[][] {
     } else if (instructionArray[0] === "addx") {
       for (let i = 0; i < 2; i++) {
         if (pixelsVisible.includes(cycle)) {
-          crt[line][cycle] = "#";
+          crt[line][cycle] = "▓";
         }
         cycle += 1;
         if (cycle % 40 === 0) {
