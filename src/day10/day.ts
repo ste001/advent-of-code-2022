@@ -9,7 +9,7 @@ export function findSignalStrength(input: string[]) : number {
     const instructionArray = instruction.split(" ");
     if (instructionArray[0] === "noop") {
       cycle += 1;
-      if (cycle === 20 || cycle === 60 || cycle === 100 || cycle === 140 || cycle == 180 || cycle === 220) {
+      if ([20, 60, 100, 140, 180, 220].includes(cycle)) {
         sumOfStrenghts += x * cycle;
       }
     } else if (instructionArray[0] === "addx") {
